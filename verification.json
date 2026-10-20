@@ -1,0 +1,311 @@
+{
+  "arithmetic": "Python exact integers and fractions.Fraction",
+  "alpha_checks": 112840,
+  "alpha_max_s": 30,
+  "graphs": 1099,
+  "placements": 33866,
+  "independent_closure_checks": 33866,
+  "heterogeneous_checks": 33866,
+  "graph_scope": "All labelled simple graphs on 1 through 5 vertices; all sensor subsets, including empty",
+  "gadget_subset_checks": 1016,
+  "gadget_max_d": 8,
+  "example_survival_patterns": 256,
+  "example_vertices": 18,
+  "example_sensors": 8,
+  "example_quadratic_interactions": [
+    -3,
+    1,
+    1,
+    1
+  ],
+  "compressed_forest_recipes": [
+    {
+      "degree": 2,
+      "vertices": 18,
+      "sensors": 8,
+      "components": 4,
+      "coefficients": [
+        0,
+        18,
+        0
+      ],
+      "blocks": [
+        {
+          "kind": "N",
+          "sensors": 2,
+          "copies": 1
+        },
+        {
+          "kind": "P",
+          "sensors": 2,
+          "copies": 3
+        }
+      ]
+    },
+    {
+      "degree": 3,
+      "vertices": 54,
+      "sensors": 27,
+      "components": 11,
+      "coefficients": [
+        0,
+        54,
+        0,
+        0
+      ],
+      "blocks": [
+        {
+          "kind": "N",
+          "sensors": 3,
+          "copies": 3
+        },
+        {
+          "kind": "P",
+          "sensors": 2,
+          "copies": 6
+        },
+        {
+          "kind": "P",
+          "sensors": 3,
+          "copies": 2
+        }
+      ]
+    },
+    {
+      "degree": 4,
+      "vertices": 552,
+      "sensors": 276,
+      "components": 112,
+      "coefficients": [
+        0,
+        552,
+        0,
+        0,
+        0
+      ],
+      "blocks": [
+        {
+          "kind": "N",
+          "sensors": 3,
+          "copies": 28
+        },
+        {
+          "kind": "N",
+          "sensors": 4,
+          "copies": 2
+        },
+        {
+          "kind": "P",
+          "sensors": 2,
+          "copies": 72
+        },
+        {
+          "kind": "P",
+          "sensors": 4,
+          "copies": 10
+        }
+      ]
+    },
+    {
+      "degree": 5,
+      "vertices": 2880,
+      "sensors": 1440,
+      "components": 584,
+      "coefficients": [
+        0,
+        2880,
+        0,
+        0,
+        0,
+        0
+      ],
+      "blocks": [
+        {
+          "kind": "N",
+          "sensors": 3,
+          "copies": 150
+        },
+        {
+          "kind": "N",
+          "sensors": 5,
+          "copies": 6
+        },
+        {
+          "kind": "P",
+          "sensors": 2,
+          "copies": 380
+        },
+        {
+          "kind": "P",
+          "sensors": 4,
+          "copies": 40
+        },
+        {
+          "kind": "P",
+          "sensors": 5,
+          "copies": 8
+        }
+      ]
+    },
+    {
+      "degree": 6,
+      "vertices": 59328,
+      "sensors": 29664,
+      "components": 12032,
+      "coefficients": [
+        0,
+        59328,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "blocks": [
+        {
+          "kind": "N",
+          "sensors": 3,
+          "copies": 3100
+        },
+        {
+          "kind": "N",
+          "sensors": 5,
+          "copies": 108
+        },
+        {
+          "kind": "N",
+          "sensors": 6,
+          "copies": 8
+        },
+        {
+          "kind": "P",
+          "sensors": 2,
+          "copies": 7800
+        },
+        {
+          "kind": "P",
+          "sensors": 4,
+          "copies": 960
+        },
+        {
+          "kind": "P",
+          "sensors": 6,
+          "copies": 56
+        }
+      ]
+    },
+    {
+      "degree": 7,
+      "vertices": 462168,
+      "sensors": 231084,
+      "components": 93732,
+      "coefficients": [
+        0,
+        462168,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "blocks": [
+        {
+          "kind": "N",
+          "sensors": 3,
+          "copies": 24150
+        },
+        {
+          "kind": "N",
+          "sensors": 5,
+          "copies": 882
+        },
+        {
+          "kind": "N",
+          "sensors": 7,
+          "copies": 24
+        },
+        {
+          "kind": "P",
+          "sensors": 2,
+          "copies": 60732
+        },
+        {
+          "kind": "P",
+          "sensors": 4,
+          "copies": 7560
+        },
+        {
+          "kind": "P",
+          "sensors": 6,
+          "copies": 336
+        },
+        {
+          "kind": "P",
+          "sensors": 7,
+          "copies": 48
+        }
+      ]
+    },
+    {
+      "degree": 8,
+      "vertices": 15938112,
+      "sensors": 7969056,
+      "components": 3232384,
+      "coefficients": [
+        0,
+        15938112,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "blocks": [
+        {
+          "kind": "N",
+          "sensors": 3,
+          "copies": 832720
+        },
+        {
+          "kind": "N",
+          "sensors": 5,
+          "copies": 30576
+        },
+        {
+          "kind": "N",
+          "sensors": 7,
+          "copies": 704
+        },
+        {
+          "kind": "N",
+          "sensors": 8,
+          "copies": 48
+        },
+        {
+          "kind": "P",
+          "sensors": 2,
+          "copies": 2094624
+        },
+        {
+          "kind": "P",
+          "sensors": 4,
+          "copies": 259840
+        },
+        {
+          "kind": "P",
+          "sensors": 6,
+          "copies": 13440
+        },
+        {
+          "kind": "P",
+          "sensors": 8,
+          "copies": 432
+        }
+      ]
+    }
+  ],
+  "status": "PASS"
+}
