@@ -3,10 +3,12 @@ import argparse
 import json
 from fractions import Fraction
 from itertools import combinations
+from math import factorial
 from pathlib import Path
 from fragile import (choose, alpha, coverage_table, mobius, layer_sums,
                      diagonal_coefficients, gadget, gadget_polynomial,
-                     forest_recipe, recipe_statistics, materialize_recipe)
+                     forest_recipe, forest_size_bound, recipe_statistics,
+                     materialize_recipe)
 
 
 def observed_reference(n, edges, sensors):
@@ -65,6 +67,20 @@ def run():
                     count += 1
     report["alpha_checks"] = count
     report["alpha_max_s"] = 30
+
+    lagrange_checks = 0
+    for s in range(1,15):
+        for ell in range(1,s+1):
+            for k in range(1,s+1):
+                for i in range(1,ell+1):
+                    weight = Fraction(choose(s,k),choose(s,i))
+                    for h in range(ell+1):
+                        if h != i:
+                            weight *= Fraction(k-h,i-h)
+                    assert weight == alpha(s,ell,k,i)
+                    lagrange_checks += 1
+    report["lagrange_weight_checks"] = lagrange_checks
+    report["lagrange_max_s"] = 14
 
     graphs = placements = closures = hetero = 0
     for n in range(1,6):
@@ -132,20 +148,46 @@ def run():
     report["example_sensors"] = len(sensors)
     report["example_quadratic_interactions"] = [-3,1,1,1]
 
-    recipes=[]
-    for d in range(2,9):
-        counts,p = forest_recipe(d)
-        stats=recipe_statistics(counts)
-        assert p == [0,stats["vertices"]]+[0]*(d-1)
-        rebuilt=[0]*(d+1)
-        for (kind,k),copies in counts.items():
-            for j,x in enumerate(gadget_polynomial(kind,k)):
-                rebuilt[j] += copies*x
-        assert rebuilt == p
-        assert counts[("P",d)] > 0
-        recipes.append(dict(degree=d,**stats,coefficients=p,
-            blocks=[dict(kind=kind,sensors=k,copies=c) for (kind,k),c in sorted(counts.items())]))
-    report["compressed_forest_recipes"] = recipes
+    for reduced,key in ((True,"compressed_forest_recipes"),
+                        (False,"original_forest_recipes")):
+        recipes=[]
+        for d in range(2,9):
+            counts,p = forest_recipe(d,reduce_multipliers=reduced)
+            stats=recipe_statistics(counts)
+            assert p == [0,stats["vertices"]]+[0]*(d-1)
+            rebuilt=[0]*(d+1)
+            for (kind,k),copies in counts.items():
+                for j,x in enumerate(gadget_polynomial(kind,k)):
+                    rebuilt[j] += copies*x
+            assert rebuilt == p
+            assert counts[("P",d)] > 0
+            recipes.append(dict(degree=d,**stats,coefficients=p,
+                blocks=[dict(kind=kind,sensors=k,copies=c)
+                        for (kind,k),c in sorted(counts.items())]))
+        report[key] = recipes
+
+    norm_checks = 0
+    for j in range(2,101):
+        for kind,constant in (("P",2),("N",3)):
+            p=gadget_polynomial(kind,j)
+            assert sum(factorial(k)*abs(p[k]) for k in range(1,j)) <= constant*factorial(j)
+            norm_checks += 1
+    report["factorial_norm_checks"] = norm_checks
+    report["factorial_norm_max_j"] = 100
+
+    bound_checks = 0
+    for d in range(2,31):
+        sizes = []
+        for reduced in (True,False):
+            counts,p = forest_recipe(d,reduce_multipliers=reduced)
+            n = recipe_statistics(counts)["vertices"]
+            assert p == [0,n]+[0]*(d-1)
+            assert n <= forest_size_bound(d)
+            sizes.append(n)
+            bound_checks += 1
+        assert sizes[0] <= sizes[1]
+    report["size_bound_checks"] = bound_checks
+    report["size_bound_max_d"] = 30
     report["status"] = "PASS"
     return report
 
@@ -156,4 +198,4 @@ if __name__ == "__main__":
     args=parser.parse_args()
     result=run()
     Path(args.output).write_text(json.dumps(result,indent=2)+"\n",encoding="utf-8")
-    print(json.dumps({k:v for k,v in result.items() if k != "compressed_forest_recipes"},indent=2))
+    print(json.dumps({k:v for k,v in result.items() if not k.endswith("forest_recipes")},indent=2))

@@ -2,6 +2,8 @@
   "arithmetic": "Python exact integers and fractions.Fraction",
   "alpha_checks": 112840,
   "alpha_max_s": 30,
+  "lagrange_weight_checks": 6020,
+  "lagrange_max_s": 14,
   "graphs": 1099,
   "placements": 33866,
   "independent_closure_checks": 33866,
@@ -19,6 +21,295 @@
     1
   ],
   "compressed_forest_recipes": [
+    {
+      "degree": 2,
+      "vertices": 18,
+      "sensors": 8,
+      "components": 4,
+      "coefficients": [
+        0,
+        18,
+        0
+      ],
+      "blocks": [
+        {
+          "kind": "N",
+          "sensors": 2,
+          "copies": 1
+        },
+        {
+          "kind": "P",
+          "sensors": 2,
+          "copies": 3
+        }
+      ]
+    },
+    {
+      "degree": 3,
+      "vertices": 54,
+      "sensors": 27,
+      "components": 11,
+      "coefficients": [
+        0,
+        54,
+        0,
+        0
+      ],
+      "blocks": [
+        {
+          "kind": "N",
+          "sensors": 3,
+          "copies": 3
+        },
+        {
+          "kind": "P",
+          "sensors": 2,
+          "copies": 6
+        },
+        {
+          "kind": "P",
+          "sensors": 3,
+          "copies": 2
+        }
+      ]
+    },
+    {
+      "degree": 4,
+      "vertices": 276,
+      "sensors": 138,
+      "components": 56,
+      "coefficients": [
+        0,
+        276,
+        0,
+        0,
+        0
+      ],
+      "blocks": [
+        {
+          "kind": "N",
+          "sensors": 3,
+          "copies": 14
+        },
+        {
+          "kind": "N",
+          "sensors": 4,
+          "copies": 1
+        },
+        {
+          "kind": "P",
+          "sensors": 2,
+          "copies": 36
+        },
+        {
+          "kind": "P",
+          "sensors": 4,
+          "copies": 5
+        }
+      ]
+    },
+    {
+      "degree": 5,
+      "vertices": 1440,
+      "sensors": 720,
+      "components": 292,
+      "coefficients": [
+        0,
+        1440,
+        0,
+        0,
+        0,
+        0
+      ],
+      "blocks": [
+        {
+          "kind": "N",
+          "sensors": 3,
+          "copies": 75
+        },
+        {
+          "kind": "N",
+          "sensors": 5,
+          "copies": 3
+        },
+        {
+          "kind": "P",
+          "sensors": 2,
+          "copies": 190
+        },
+        {
+          "kind": "P",
+          "sensors": 4,
+          "copies": 20
+        },
+        {
+          "kind": "P",
+          "sensors": 5,
+          "copies": 4
+        }
+      ]
+    },
+    {
+      "degree": 6,
+      "vertices": 14832,
+      "sensors": 7416,
+      "components": 3008,
+      "coefficients": [
+        0,
+        14832,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "blocks": [
+        {
+          "kind": "N",
+          "sensors": 3,
+          "copies": 775
+        },
+        {
+          "kind": "N",
+          "sensors": 5,
+          "copies": 27
+        },
+        {
+          "kind": "N",
+          "sensors": 6,
+          "copies": 2
+        },
+        {
+          "kind": "P",
+          "sensors": 2,
+          "copies": 1950
+        },
+        {
+          "kind": "P",
+          "sensors": 4,
+          "copies": 240
+        },
+        {
+          "kind": "P",
+          "sensors": 6,
+          "copies": 14
+        }
+      ]
+    },
+    {
+      "degree": 7,
+      "vertices": 77028,
+      "sensors": 38514,
+      "components": 15622,
+      "coefficients": [
+        0,
+        77028,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "blocks": [
+        {
+          "kind": "N",
+          "sensors": 3,
+          "copies": 4025
+        },
+        {
+          "kind": "N",
+          "sensors": 5,
+          "copies": 147
+        },
+        {
+          "kind": "N",
+          "sensors": 7,
+          "copies": 4
+        },
+        {
+          "kind": "P",
+          "sensors": 2,
+          "copies": 10122
+        },
+        {
+          "kind": "P",
+          "sensors": 4,
+          "copies": 1260
+        },
+        {
+          "kind": "P",
+          "sensors": 6,
+          "copies": 56
+        },
+        {
+          "kind": "P",
+          "sensors": 7,
+          "copies": 8
+        }
+      ]
+    },
+    {
+      "degree": 8,
+      "vertices": 996132,
+      "sensors": 498066,
+      "components": 202024,
+      "coefficients": [
+        0,
+        996132,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "blocks": [
+        {
+          "kind": "N",
+          "sensors": 3,
+          "copies": 52045
+        },
+        {
+          "kind": "N",
+          "sensors": 5,
+          "copies": 1911
+        },
+        {
+          "kind": "N",
+          "sensors": 7,
+          "copies": 44
+        },
+        {
+          "kind": "N",
+          "sensors": 8,
+          "copies": 3
+        },
+        {
+          "kind": "P",
+          "sensors": 2,
+          "copies": 130914
+        },
+        {
+          "kind": "P",
+          "sensors": 4,
+          "copies": 16240
+        },
+        {
+          "kind": "P",
+          "sensors": 6,
+          "copies": 840
+        },
+        {
+          "kind": "P",
+          "sensors": 8,
+          "copies": 27
+        }
+      ]
+    }
+  ],
+  "original_forest_recipes": [
     {
       "degree": 2,
       "vertices": 18,
@@ -307,5 +598,9 @@
       ]
     }
   ],
+  "factorial_norm_checks": 198,
+  "factorial_norm_max_j": 100,
+  "size_bound_checks": 58,
+  "size_bound_max_d": 30,
   "status": "PASS"
 }

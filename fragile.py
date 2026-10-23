@@ -1,6 +1,6 @@
 """Exact finite computations for fragile power domination. Standard library only."""
 from collections import Counter
-from math import comb
+from math import comb, factorial, gcd
 
 
 def choose(n, k):
@@ -99,8 +99,12 @@ def gadget_polynomial(kind, d):
     return p
 
 
-def forest_recipe(d):
-    """Compressed, integer construction. It deliberately does not minimize size."""
+def forest_recipe(d, reduce_multipliers=True):
+    """Compressed integer construction, with optional gcd cancellation.
+
+    Set reduce_multipliers=False to reproduce the original construction.
+    Neither version is claimed to minimize the number of vertices.
+    """
     counts = Counter({("P", d): 1})
     polynomial = gadget_polynomial("P", d)
     for j in range(d, 1, -1):
@@ -110,12 +114,23 @@ def forest_recipe(d):
         kind = "N" if c > 0 else "P"
         g = gadget_polynomial(kind, j)
         scale, copies = abs(g[j]), abs(c)
+        if reduce_multipliers:
+            common = gcd(scale, copies)
+            scale //= common
+            copies //= common
         counts = Counter({key: value * scale for key, value in counts.items()})
         counts[(kind, j)] += copies
         polynomial = [x * scale for x in polynomial]
         for k, x in enumerate(g):
             polynomial[k] += copies * x
     return counts, polynomial
+
+
+def forest_size_bound(d):
+    """The proved upper bound (5/2) d! (d+1)!, valid for both recipes."""
+    if d < 2:
+        raise ValueError("Expected d >= 2")
+    return 5 * factorial(d) * factorial(d+1) // 2
 
 
 def recipe_statistics(counts):
